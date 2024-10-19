@@ -38,7 +38,12 @@ On the terminal with the venv activated, try running this first to see if you ar
 
     huggingface-cli whoami
 
-If you are not authenticated, run this and paste in an [access token](https://huggingface.co/settings/tokens):
+You should see something like this:
+
+    myusername
+    orgs: myorg
+
+If you are not authenticated, run this and paste in an [access token](https://huggingface.co/docs/hub/en/security-tokens), ([link to create](https://huggingface.co/settings/tokens)).
 
     huggingface-cli login
 
