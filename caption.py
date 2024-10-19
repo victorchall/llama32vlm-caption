@@ -22,7 +22,7 @@ import PIL.ImageOps as ImageOps
 from pynvml import *
 
 from transformers import AutoModelForCausalLM, MllamaProcessor, BitsAndBytesConfig, MllamaForConditionalGeneration, \
-    AutoProcessor
+    AutoProcessor, LogitsProcessor
 from transformers.modeling_outputs import BaseModelOutputWithPast
 
 from colorama import Fore, Style
@@ -167,8 +167,7 @@ class Llama32VisionInstructManager(BaseModelWrapper):
         self.processor = MllamaProcessor.from_pretrained(model_id)
         print(self.processor)
         self.tokenizer = self.processor
-        self.model = MllamaForConditionalGeneration.from_pretrained(model_id, torch_dtype=torch.bfloat16, device_map="auto",)
-        self.model.to("cuda")
+        self.model = MllamaForConditionalGeneration.from_pretrained(model_id, torch_dtype=torch.bfloat16, device_map="auto")
 
     def caption(self, prompt, image, args, force_words_ids, bad_words_ids, history=[]):
         gen_kwargs = self.get_gen_kwargs(args)
