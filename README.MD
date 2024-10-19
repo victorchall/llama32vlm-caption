@@ -28,4 +28,18 @@ You can try this if you're having troubles:
 
     pip install torch>=2.4.1+cu121 --extra-index-url "https://download.pytorch.org/whl/cu121"
 
-Windows users can also use WSL with an Nvidia/Pytorch/Cuda image, various cloud GPU services, Google Colab Pro (>=24GB VRAM), etc.  
+Windows users can also use WSL with an Nvidia/Pytorch/Cuda image, various cloud GPU services, Google Colab Pro (>=24GB VRAM), etc. 
+
+## Hugginface login
+
+Since Llama models are gated access on Huggingface, you'll first need to go to the [meta-llama/Llama-3.2-11B-Vision-Instruct](https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct) site while logged into Hugginface and accept their terms.  You'll then need to make sure your terminal is authenticated to Huggingface for the model to load properly.
+
+On the terminal with the venv activated, try running this first to see if you are logged in:
+
+    huggingface-cli whoami
+
+If you are not authenticated, run this and paste in an [access token](https://huggingface.co/settings/tokens):
+
+    huggingface-cli login
+
+Your system should remember you from that point forward, though if you're running on a rented instance you'll have to login every time you start a new rented instance.
